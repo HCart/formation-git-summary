@@ -1,0 +1,6 @@
+Modifier plusieurs messages de validation
+Pour modifier une validation qui est plus loin dans votre historique, vous devez utiliser des outils plus complexes. Git ne contient pas d'outil de modification d'historique, mais vous pouvez utiliser l'outil rebase pour rebaser une suite de commits depuis la branche HEAD plutôt que de les déplacer vers une autre branche. Avec l'outil rebase interactif, vous pouvez vous arrêter après chaque commit que vous voulez modifier et changer le message, ajouter des fichiers ou quoique ce soit que vous voulez. Vous pouvez exécuter rebase interactivement en ajoutant l'option -i à git rebase. Vous devez indiquer jusqu'à quand remonter dans votre historique en donnant à la commande le commit sur lequel vous voulez vous rebaser.
+
+Par exemple, si vous voulez modifier les 3 derniers messages de validation ou n'importe lequel des messages dans ce groupe, vous fournissez à git rebase -i le parent du dernier commit que vous voulez éditer, qui est HEAD~2^ or HEAD~3. Il peut être plus facile de se souvenir de ~3, car vous essayez de modifier les 3 derniers commits, mais gardez à l'esprit que vous désignez le 4e, le parent du dernier commit que vous voulez modifier :
+
+$ git rebase -i HEAD~3
